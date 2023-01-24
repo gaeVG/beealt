@@ -1,0 +1,12 @@
+node_modules
+altv-server
+resources
+.vscode
+*.dll
+*.exe
+update.json
+data/
+*.log
+cache/
+crashdumps/
+*lock*
