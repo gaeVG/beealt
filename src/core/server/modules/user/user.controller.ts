@@ -4,7 +4,11 @@ import { UserService } from './user.service';
 
 
 export class UserController {
-  static userService = new UserService();
+  static userService: UserService;
+
+  constructor() {
+    UserController.userService = new UserService();
+  }
 
   @On('playerConnect')
   onPlayerConnect(player: Player) {

@@ -1,21 +1,10 @@
-// Dependencies
-import { Column, Entity, ObjectIdColumn, ObjectID } from 'typeorm';
-// Declarations
-// import { UserIdentifier, UserGroup } from '@declares/user';
-// User character entity
-// import { UserCharacters } from './characters';
+import { BaseEntity, Column, Entity, ObjectIdColumn } from "typeorm";
 
 @Entity()
-export class UsersEntity {
+export class Users extends BaseEntity {
   @ObjectIdColumn()
-  id: ObjectID;
+  id: number
 
-//   @Column()
-//   auth: UserIdentifier;
-
-//   @Column()
-//   group: UserGroup;
-
-//   @Column(() => UserCharacters)
-//   characters: UserCharacters[];
+  @Column()
+  socialID: string;
 }
