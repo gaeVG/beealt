@@ -1,21 +1,20 @@
-import { AppController } from './app.controller';
 import { DataSource } from 'typeorm';
+import { MongoConnectionOptions } from 'typeorm/driver/mongodb/MongoConnectionOptions';
+import { DatabaseFactory } from '../libs/database';
+import { AppController } from './app.controller';
+import { UserModule } from '../modules/user/user.module';
+import { ModuleFactory } from '../libs/module';
+
 
 export class AppModule extends AppController {
-  private orm: DataSource;
-  
-  constructor() {
+  constructor(
+    private userModule = UserModule
+  ) {
     super();
   }
   
-  protected onStart(dbConfig:  {
-    host?: string;
-    port?: number;
-    database?: string;
-    username?: string;
-    password?: string;
-    synchronize?: boolean;
-    logging?: boolean;
-  }) {
+  protected async onStart(dbConfig: MongoConnectionOptions) {
+    await DatabaseFactory.init(dbConfig);
+    ModuleFactory.loadModules();
   }
 }

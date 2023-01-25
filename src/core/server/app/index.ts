@@ -1,21 +1,15 @@
+import { MongoConnectionOptions } from 'typeorm/driver/mongodb/MongoConnectionOptions';
+import { DatabaseFactory } from '../libs/database';
 import { AppModule } from './app.module';
 
 type ApplicationConfig = {
-    database?: {
-        host?: string;
-        port?: number;
-        database?: string;
-        username?: string;
-        password?: string;
-        synchronize?: boolean;
-        logging?: boolean;
-    }
+    database?: MongoConnectionOptions
 };
 
 export class ApplicationFactory extends AppModule {
     private static $self: ApplicationFactory;
 
-    private constructor(private config: ApplicationConfig = { database : {}}) {
+    private constructor(private config: ApplicationConfig = {}) {
         super();
     }
 
@@ -26,7 +20,7 @@ export class ApplicationFactory extends AppModule {
         return ApplicationFactory.$self;
     }
 
-    public start() {
+    public start() {      
         this.onStart(this.config.database);
     }
 }

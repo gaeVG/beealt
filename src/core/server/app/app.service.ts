@@ -6,7 +6,7 @@ export class AppService {
     if (error) {
         log('Resource failed to start');
     } else {
-        log('Resource started');
+        log('Application started');
     }
   }
 }
