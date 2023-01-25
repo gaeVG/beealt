@@ -1,14 +1,14 @@
 import { EntitySchema, MixedList } from 'typeorm';
 
 class EntitiesProvider {
-    constructor(private entities: MixedList<EntitySchema> = []) {}
+    constructor(private entities: any[] = []) {}
 
     get Entities() {
         return this.entities;
     }
 
-    set Entities(entities: MixedList<EntitySchema>) {
-        this.entities = entities;
+    set Entities(entities: any[]) {
+        this.entities = [...this.entities, ...entities];
     }
 }
 
