@@ -1,8 +1,7 @@
-import { MixedList, EntitySchema } from "typeorm";
+import { ModuleRegister } from "../libs/module/module.register";
 
-
-export function Module(options: { entities: any[] }) {
-    return function (target: any) {
-        console.log(options.entities);
+export function Module(options: { entities: any[], controller: any }) {
+    return function<T extends new (...args: any[]) => {}>(target: T) {
+        ModuleRegister.addModule(target, options);
     }
 }
