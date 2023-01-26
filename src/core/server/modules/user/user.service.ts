@@ -17,23 +17,27 @@ export class UserService {
   private async getUserFromDB(player: Player) {
     let userFromDB = await this.orm.getMongoRepository(UsersEntity).findOne({
       where: {
-        socialID: player.socialID
-      }
+        socialID: player.socialID,
+      },
     });
 
     if (!userFromDB) {
-      userFromDB = await this.createUserOnDB(player)
+      userFromDB = await this.createUserOnDB(player);
     }
 
     return userFromDB;
   }
 
   async onPlayerConnect(player: Player) {
-    const userFromDB = await this.getUserFromDB(player)
-    log(`[Social ID: ${player.socialID} | Application ID: ${userFromDB.id.toString()}] ${player.name} has connected to the server.`);
-    
+    const userFromDB = await this.getUserFromDB(player);
+    log(
+      `[Social ID: ${player.socialID} | Application ID: ${userFromDB.id.toString()}] ${
+        player.name
+      } has connected to the server.`
+    );
+
     player.model = 'mp_m_freemode_01';
     player.spawn(36.19486618041992, 859.3850708007812, 197.71343994140625, 0);
-    console.log(player.armour)
+    console.log(player.armour);
   }
 }

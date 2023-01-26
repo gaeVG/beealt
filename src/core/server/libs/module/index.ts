@@ -1,6 +1,6 @@
-import { ModuleRegister } from "./module.register";
+import { ModuleRegister } from './module.register';
 
-export class ModuleFactory  {
+export class ModuleFactory {
   private static $self: ModuleFactory;
 
   private constructor(private modules = ModuleRegister.Modules) {}

@@ -1,7 +1,7 @@
-import { DataSource } from "typeorm";
-import { MongoConnectionOptions } from "typeorm/driver/mongodb/MongoConnectionOptions";
-import { EntitiesRegister } from "./entities.register";
-import { Users } from "../../modules/user/user.entity";
+import { DataSource } from 'typeorm';
+import { MongoConnectionOptions } from 'typeorm/driver/mongodb/MongoConnectionOptions';
+import { EntitiesRegister } from './entities.register';
+import { Users } from '../../modules/user/user.entity';
 
 export class DatabaseFactory extends DataSource {
   private static $self: DatabaseFactory;
@@ -19,7 +19,7 @@ export class DatabaseFactory extends DataSource {
     subscribers: [],
     migrations: [],
     useUnifiedTopology: true,
-}
+  };
 
   private constructor(options?: MongoConnectionOptions) {
     if (options) DatabaseFactory.$config = options;
@@ -49,13 +49,15 @@ export class DatabaseFactory extends DataSource {
   }
 
   public static async init(options: MongoConnectionOptions) {
+    const instance = DatabaseFactory.getInstance(options);
 
-    const instance = DatabaseFactory.getInstance(options)
-
-    instance.initialize().then(async () => {
-      console.log('Database connected');
-    }).catch((err) => {
-      console.log(err)
-    })
+    instance
+      .initialize()
+      .then(async () => {
+        console.log('Database connected');
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 }

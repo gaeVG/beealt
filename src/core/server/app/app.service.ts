@@ -4,9 +4,9 @@ export class AppService {
   constructor() {}
   onServerResourceStart(error: boolean) {
     if (error) {
-        log('Resource failed to start');
+      log('Resource failed to start');
     } else {
-        log('Application started');
+      log('Application started');
     }
   }
 }

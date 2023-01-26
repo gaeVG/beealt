@@ -1,7 +1,6 @@
 import { On } from '../decorators/on.decorators';
 import { AppService } from './app.service';
 
-
 export class AppController {
   static appService = new AppService();
 

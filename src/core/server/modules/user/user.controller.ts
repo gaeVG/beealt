@@ -1,7 +1,6 @@
-import {  Player } from 'alt-server';
+import { Player } from 'alt-server';
 import { On } from '../../decorators/on.decorators';
 import { UserService } from './user.service';
-
 
 export class UserController {
   static userService: UserService;

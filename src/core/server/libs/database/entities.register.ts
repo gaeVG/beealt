@@ -1,15 +1,15 @@
 import { EntitySchema, MixedList } from 'typeorm';
 
 class EntitiesProvider {
-    constructor(private entities: any[] = []) {}
+  constructor(private entities: any[] = []) {}
 
-    get Entities() {
-        return this.entities;
-    }
+  get Entities() {
+    return this.entities;
+  }
 
-    set Entities(entities: any[]) {
-        this.entities = [...this.entities, ...entities];
-    }
+  set Entities(entities: any[]) {
+    this.entities = [...this.entities, ...entities];
+  }
 }
 
 const globalRef = global as any;
