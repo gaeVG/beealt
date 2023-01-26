@@ -1,4 +1,3 @@
-import { DataSource } from 'typeorm';
 import { MongoConnectionOptions } from 'typeorm/driver/mongodb/MongoConnectionOptions';
 import { DatabaseFactory } from '../libs/database';
 import { AppController } from './app.controller';

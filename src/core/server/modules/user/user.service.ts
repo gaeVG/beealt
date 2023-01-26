@@ -1,7 +1,5 @@
 import { log, Player } from 'alt-server';
-import { DataSource } from 'typeorm';
 import { DatabaseFactory } from '../../libs/database';
-import { EntitiesRegister } from '../../libs/database/entities.register';
 import { Users as UsersEntity } from './user.entity';
 
 export class UserService {
@@ -37,7 +35,7 @@ export class UserService {
     );
 
     player.model = 'mp_m_freemode_01';
-    player.spawn(36.19486618041992, 859.3850708007812, 197.71343994140625, 0);
+    player.spawn(36.194, 859.385, 197.713, 0);
     console.log(player.armour);
   }
 }

@@ -1,5 +1,4 @@
 import { MongoConnectionOptions } from 'typeorm/driver/mongodb/MongoConnectionOptions';
-import { DatabaseFactory } from '../libs/database';
 import { AppModule } from './app.module';
 
 type ApplicationConfig = {

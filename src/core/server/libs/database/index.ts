@@ -1,7 +1,6 @@
 import { DataSource } from 'typeorm';
 import { MongoConnectionOptions } from 'typeorm/driver/mongodb/MongoConnectionOptions';
 import { EntitiesRegister } from './entities.register';
-import { Users } from '../../modules/user/user.entity';
 
 export class DatabaseFactory extends DataSource {
   private static $self: DatabaseFactory;

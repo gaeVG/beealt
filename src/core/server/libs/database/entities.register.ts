@@ -1,5 +1,3 @@
-import { EntitySchema, MixedList } from 'typeorm';
-
 class EntitiesProvider {
   constructor(private entities: any[] = []) {}
 

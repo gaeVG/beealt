@@ -17,7 +17,7 @@ class ModuleProvider {
     return this.modules;
   }
 
-  addModule<T extends new (...args: any[]) => {}>(target: T, options: { entities: any[]; controller: any }) {
+  addModule<T extends new (...args: any[]) => unknown>(target: T, options: { entities: any[]; controller: any }) {
     this.modules.push(
       new (class extends ModuleClass {
         constructor() {
